@@ -1,0 +1,293 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10049,        284]
+NotebookOptionsPosition[      9813,        271]
+NotebookOutlinePosition[     10148,        286]
+CellTagsIndexPosition[     10105,        283]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<Combinatorica`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<GraphUtilities`\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"g", " ", "=", " ", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+     "\"\</home/tsn/Desktop/cse_project/mathematica/data_gml/cumulative_2009-\
+04-28.gml\>\"", ",", " ", "\"\<EdgeRules\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "g", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nodeNo", " ", "=", " ", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+     "\"\</home/tsn/Desktop/cse_project/mathematica/data_gml/cumulative_2009-\
+04-28.gml\>\"", ",", " ", "\"\<VertexCount\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"adjMat", " ", "=", " ", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+     "\"\</home/tsn/Desktop/cse_project/mathematica/data_gml/cumulative_2009-\
+04-28.gml\>\"", ",", " ", "\"\<AdjacencyMatrix\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g1", " ", "=", " ", 
+   RowBox[{"ToCombinatoricaGraph", "[", "g", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"g1", "[", 
+     RowBox[{"[", "3", "]"}], "]"}], " ", "=", " ", 
+    RowBox[{"EdgeDirection", " ", "\[Rule]", " ", "False"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Dia", " ", "=", " ", "2"}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<GraphUtilities`\>\"", "]"}], ";", "\n", 
+    RowBox[{"Needs", "[", "\"\<Combinatorica`\>\"", "]"}], ";", "\n", 
+    RowBox[{
+    "path", "=", 
+     "\"\</home/tsn/Desktop/cse_project/mathematica/data/listcontacts_2009_04_\
+28.txt\>\""}], ";", "\n", 
+    RowBox[{"edgeNodes", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{"path", ",", "Number"}], "]"}]}], ";", "\n", 
+    RowBox[{"edgeNo", "=", 
+     RowBox[{"Length", "[", "edgeNodes", "]"}]}], ";", "\n", 
+    RowBox[{"node1", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{"{", 
+        RowBox[{"edgeNo", "/", "3"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"times", " ", "=", " ", 
+     RowBox[{"node2", "=", "node1"}]}], ";", "\n", 
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"times", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", 
+        RowBox[{"edgeNodes", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"3", "*", "i"}], "-", "2"}], "]"}], "]"}]}], ";"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"edgeNo", "/", "3"}]}], "}"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"node1", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", 
+        RowBox[{
+         RowBox[{"edgeNodes", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"3", "*", "i"}], "-", "1"}], "]"}], "]"}], "+", "1"}]}], 
+       ";"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"edgeNo", "/", "3"}]}], "}"}]}], "]"}], ";", "\n", 
+    RowBox[{"(*", "node1", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"node2", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", 
+        RowBox[{
+         RowBox[{"edgeNodes", "[", 
+          RowBox[{"[", 
+           RowBox[{"3", "*", "i"}], "]"}], "]"}], "+", "1"}]}], ";"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"edgeNo", "/", "3"}]}], "}"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", "\n", 
+    RowBox[{"times", " ", "=", " ", 
+     RowBox[{"times", "-", 
+      RowBox[{"Min", "[", "times", "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Sort", "[", "node1", "]"}], "-", 
+     RowBox[{"Min", "[", "node1", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Sort", "[", "node2", "]"}], "-", 
+     RowBox[{"Min", "[", "node2", "]"}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"lB", " ", "=", " ", 
+     RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"lB", " ", "=", " ", 
+        RowBox[{"Append", "[", 
+         RowBox[{"lB", ",", " ", "i"}], "]"}]}], ";"}], "\[IndentingNewLine]",
+       ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", " ", "2", ",", " ", "Dia"}], "}"}]}], "]"}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"L", " ", "=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{"0", ",", " ", 
+      RowBox[{"{", "nodeNo", "}"}], ",", " ", 
+      RowBox[{"{", "nodeNo", "}"}]}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"meanMc", " ", "=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{"0", ",", " ", 
+      RowBox[{"{", "Dia", "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"L", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", " ", "j"}], "]"}], "]"}], " ", "=", " ", 
+          RowBox[{
+           RowBox[{"L", "[", 
+            RowBox[{"[", 
+             RowBox[{"j", ",", " ", "i"}], "]"}], "]"}], " ", "=", " ", 
+           RowBox[{
+            RowBox[{"Length", "[", 
+             RowBox[{"ShortestPath", "[", 
+              RowBox[{"g1", ",", " ", "i", ",", " ", "j"}], "]"}], "]"}], " ",
+             "-", " ", "1"}]}]}], ";"}], "\[IndentingNewLine]", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "1", ",", " ", 
+          RowBox[{"nodeNo", " ", "-", " ", "1"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", " ", 
+          RowBox[{"i", " ", "+", " ", "1"}], ",", " ", "nodeNo"}], "}"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"lB", " ", "=", " ", "k"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"mcVal", " ", "=", " ", "0"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"L", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", " ", "j"}], "]"}], "]"}], " ", "\[LessEqual]",
+             " ", "lB"}], ",", " ", 
+           RowBox[{"mcVal", "++"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+        ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "1", ",", " ", "nodeNo"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", " ", "1", ",", " ", "nodeNo"}], "}"}]}], "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"meanMc", "[", 
+        RowBox[{"[", "k", "]"}], "]"}], " ", "=", " ", 
+       RowBox[{"mcVal", "/", "nodeNo"}]}], ";"}], "\[IndentingNewLine]", ",", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", " ", "1", ",", " ", 
+       RowBox[{"Dia", " ", "-", " ", "1"}]}], "}"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"meanMc", "[", 
+     RowBox[{"[", "Dia", "]"}], "]"}], " ", "=", " ", "nodeNo"}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pointList", " ", "=", " ", 
+    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"pointList", " ", "=", " ", 
+      RowBox[{"Append", "[", 
+       RowBox[{"pointList", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", 
+          RowBox[{"meanMc", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}], "}"}]}], "]"}]}], 
+     "\[IndentingNewLine]", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", " ", "1", ",", " ", "Dia"}], "}"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+    "\"\</home/tsn/Desktop/cse_project/mathematica/2009-04-28.txt\>\"", ",", 
+     " ", "pointList", ",", " ", "\"\<Table\>\""}], "]"}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "*)"}]}], "\n"}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdz1tIUwEABuCzSotoukGRsVAG4shsiGEtM3JRNi+obcHYw+wiWuewtiJD
+n3a2dqQpVgcJwnLYhYOaLcvbHGlBoRYTe1CJjXJ2jAazPOuivVR2/vPw8/H/
+b7/6rMNYu44gCK0YaBsiNQId1z/7sKsQbjDMl8KrqsUyqJ72m6Gt7A4FncZf
+Dtg5GvLAnnBqM8xqr2+FRz+a2uDu7Y23YInsRQ90abY8hrMq59uE6JWVnGlY
+YIm9h9x5MgyVsqQovK3LXYAPrMY49JkFATZog8R3qfdvhjuFdwq42vVNDUeo
+iAamLZUfgB12dxE8ebBFstzaaobU/IoFXpfzNZD+7a+DewOjdpiV//wyNIwv
+MHDCKr8Bsy/VdME3yem9MI8gB2F1Hx+EYe6et9kV17NjXAvUCywLs/cp78OC
+L14Olk7YB6CX7QtAU2VoHFoyn85AilTMwUnm0SfoKnbzMD/RXfhQtDGhOAI/
+5w4XQ/ZQZyWsWFZZYEZttBrSlO4cbNp6l4RV9Gk7XFyTX4SnRl664Y41xgN9
+KWlj0F/BvZZ2uWEGxqpSIvDa139R6FA+4WFe6oVlWFLnkgwMBn7A1VnbT3hm
+aSq5X7TdX7QRcky9Gv7RbdPCzO6b+2FDL30YdkRP/IVM8NX6AdFQepMT+mR2
+BnIZc/wQ/uXwkknHTDFI7JmU9ETajg+LBjdNSf4H8SaZJA==
+  "]]
+},
+WindowSize->{1310, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Linux x86 (32-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 9252, 249, 1209, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

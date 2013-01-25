@@ -1,0 +1,287 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/darren@hiebert.com/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://darren.hiebert.com/ctags/	/official site/
+!_TAG_PROGRAM_VERSION	3.2	/with C, C++, Eiffel, Fortran, and Java  support/
+ApplyColor	bktdsat.c	/^void ApplyColor(vertextype v,colortype c, colortype maxclr, $/;"	f
+BKTDSATDEF	bktdsat.h	50;"	d
+BRUTE	greedy.c	293;"	d	file:
+BlockColor	bktdsat.c	/^void BlockColor(vertextype v, colortype c, colortype maxclr, int branch,$/;"	f
+CNTR	itrgrdy.h	75;"	d
+COLORRTNDEF	colorrtns.h	51;"	d
+CONTROLSIZE	itrgrdy.h	57;"	d
+CheckComponents	greedy.c	/^int CheckComponents( vertextype clr1,vertextype clr2)$/;"	f
+Color	bktdsat.c	/^void Color(colortype maxclr, int branch, popmembertype *m)$/;"	f
+DEBUG	graph.c	57;"	d	file:
+DEBUGVV	graph.c	56;"	d	file:
+DEGCNT	itrgrdy.h	76;"	d
+DSATURDEFS	dsatur.h	50;"	d
+ENDLIST	bktdsat.h	54;"	d
+ENDLIST	dsatur.h	53;"	d
+ENDLIST	partition.h	57;"	d
+FindPair	bktdsat.c	/^void FindPair(colortype maxclr,vertextype *v, colortype *c, int *impval)$/;"	f
+GRAPHDEFS	graph.h	60;"	d
+GRAPHSIZE	graph.h	71;"	d
+GREEDYDEF	greedy.h	50;"	d
+HASH	tabu.c	68;"	d	file:
+ITERGREEDYDEF	itrgrdy.h	51;"	d
+LARGESTG	greedy.h	58;"	d
+LONG_BITS	bktdsat.c	58;"	d	file:
+LONG_BITS	dsatur.c	57;"	d	file:
+LONG_BITS	dsatur.c	59;"	d	file:
+MASK	graph.h	69;"	d
+MAXCLIQUEDEF	maxclique.h	52;"	d
+MAXCLR	bktdsat.c	57;"	d	file:
+MAXCLR	dsatur.c	55;"	d	file:
+MAXCOLOR	colorrtns.h	57;"	d
+MAXCOLOR	partition.h	56;"	d
+MAXCUT	maxclique.c	71;"	d	file:
+MAXCUT	maxis.c	67;"	d	file:
+MAXGRDY	greedy.h	65;"	d
+MAXHASH	tabu.c	59;"	d	file:
+MAXIS	maxclique.c	70;"	d	file:
+MAXIS	maxis.c	66;"	d	file:
+MAXISDEFS	maxis.h	50;"	d
+MAXPERLINE	colorrtns.c	68;"	d	file:
+MAXSIZE	brute.c	52;"	d	file:
+MAXTABU	tabu.h	59;"	d
+MAXTABULIST	tabu.h	62;"	d
+MAXVERTEX	graph.h	66;"	d
+MOD_MASK	bktdsat.c	59;"	d	file:
+MOD_MASK	dsatur.c	61;"	d	file:
+MYSYS	mysys.h	49;"	d
+PARTITIONDEF	partition.h	53;"	d
+RANDSEQG	greedy.h	60;"	d
+REVERSEG	greedy.h	61;"	d
+ROWSIZE	graph.h	70;"	d
+SHIFT	graph.h	68;"	d
+SHIFT_VALUE	bktdsat.c	62;"	d	file:
+SHIFT_VALUE	bktdsat.c	64;"	d	file:
+SHIFT_VALUE	dsatur.c	65;"	d	file:
+SHIFT_VALUE	dsatur.c	67;"	d	file:
+SIMPLEG	greedy.h	57;"	d
+SMALLESTG	greedy.h	59;"	d
+STIRGRDY	greedy.h	62;"	d
+Swap	greedy.c	/^void Swap($/;"	f
+TABUDEF	tabu.h	54;"	d
+USECLR	bktdsat.c	114;"	d	file:
+about	colorrtns.c	/^void about(char *pgrmname)$/;"	f
+addconf	partition.c	/^void addconf(vertextype v)$/;"	f
+adjacencytype	graph.h	/^typedef unsigned char adjacencytype;$/;"	t
+best	greedy.c	/^popmembertype best;$/;"	v
+bestclr	greedy.c	/^colortype bestclr,fixedclr;$/;"	v
+bestcolor	bktdsat.c	/^colortype bestcolor,maxsat,minsat;$/;"	v
+bestmem	itrgrdy.c	/^popmembertype bestmem,overallbest;$/;"	v
+bestmember	bktdsat.c	/^popmembertype bestmember;$/;"	v
+bfscomponent	greedy.c	/^int  bfscomponent($/;"	f
+bktdsat	bktdsat.c	/^void bktdsat($/;"	f
+blckcount	itrgrdy.c	/^void blckcount( popmembertype *mem)$/;"	f
+brute	brute.c	/^int brute(int depth,int conflim)$/;"	f
+ccompare	itrgrdy.c	/^int ccompare( struct vrtxandclr *a, struct vrtxandclr *b)$/;"	f
+cedges	partition.c	/^long cedges; \/* number of edges between conflicting vertices *\/$/;"	v
+cedges	tabu.h	/^	int cedges; \/* conflict edges if used *\/$/;"	m	struct:tbinf
+cheatflag	graph.c	/^int cheatflag;$/;"	v
+clearedge	graph.h	80;"	d
+clique	maxclique.c	/^void clique($/;"	f
+clrcnt	greedy.c	/^static int clrcnt[MAXVERTEX+1];$/;"	v	file:
+clrdata	colorrtns.h	/^        clrinfotype clrdata;$/;"	m	struct:popmember
+clrindex	greedy.c	/^static colortype clrindex;$/;"	v	file:
+clrinfo	colorrtns.h	/^struct clrinfo {$/;"	s
+clrinfotype	colorrtns.h	/^typedef struct clrinfo  clrinfotype;$/;"	t
+clrorder	greedy.c	/^static colortype clrorder[MAXVERTEX+1];$/;"	v	file:
+clrset	bktdsat.c	/^short clrset[MAXVERTEX][MAXCLR];$/;"	v
+color	colorrtns.h	/^        colortype color;$/;"	m	struct:vrtxandclr
+colorsearch	bkdmain.c	/^void colorsearch(char *name)$/;"	f
+colorsearch	dmain.c	/^void colorsearch(char *name)$/;"	f
+colorsearch	gmain.c	/^void colorsearch(char *name)$/;"	f
+colorsearch	igmain.c	/^void colorsearch(char *name)$/;"	f
+colorsearch	mmain.c	/^void colorsearch(char *name)$/;"	f
+colorsearch	tbumain.c	/^void colorsearch(char *name)$/;"	f
+colortype	colorrtns.h	/^typedef unsigned short colortype;$/;"	t
+compfunc	mysys.h	/^typedef int (*compfunc)(const void *, const void *);$/;"	t
+computedeg	colorrtns.c	/^void computedeg()$/;"	f
+conflictList	partition.c	/^vertextype conflictList[MAXVERTEX]; \/* actual vertices in conflict *\/$/;"	v
+countvertexconf	partition.c	/^void countvertexconf(vertextype v, colortype p, int *ecnt)$/;"	f
+cpulimbk	bktdsat.c	/^void cpulimbk()$/;"	f
+cpulimig	itrgrdy.c	/^void cpulimig()$/;"	f
+cretrn	brute.c	/^int cretrn[3]; \/* for counting recursion stats *\/$/;"	v
+current	bktdsat.c	/^vertextype current[MAXCLR];$/;"	v
+cutlimit	maxclique.c	/^static	int cutlimit[MAXCUT], cutvertex[MAXCUT]; \/* branch & bound values *\/$/;"	v	file:
+cutlimit	maxis.c	/^static	int cutlimit[MAXCUT], cutvertex[MAXCUT]; \/* branch & bound values *\/$/;"	v	file:
+cutvertex	maxclique.c	/^static	int cutlimit[MAXCUT], cutvertex[MAXCUT]; \/* branch & bound values *\/$/;"	v	file:
+cutvertex	maxis.c	/^static	int cutlimit[MAXCUT], cutvertex[MAXCUT]; \/* branch & bound values *\/$/;"	v	file:
+decdeg	colorrtns.c	/^int decdeg( struct vrtxandclr *a, struct vrtxandclr *b)$/;"	f
+degree	maxclique.c	/^			degree;   \/*degree of vertex*\/$/;"	m	struct:isinfo
+degree	maxclique.c	/^int degree[MAXVERTEX];$/;"	v
+degree	maxis.c	/^			degree;   \/*degree of vertex*\/$/;"	m	struct:isinfo
+degseq	colorrtns.c	/^int degseq[MAXVERTEX+1];$/;"	v
+deleteconf	partition.c	/^void deleteconf(vertextype v)$/;"	f
+dgcmp	maxclique.c	/^int dgcmp( istype *a, istype *b)$/;"	f
+dgcmp	maxis.c	/^int dgcmp( istype *a, istype *b)$/;"	f
+dsatur	dsatur.c	/^void dsatur( popmembertype *m)$/;"	f
+dwndegcnt	itrgrdy.c	/^void dwndegcnt( popmembertype *mem)$/;"	f
+edge	graph.h	82;"	d
+fileres	colorrtns.c	/^void fileres(char *name, popmembertype *m, char *prgm)$/;"	f
+first	partition.h	/^	vertextype first;$/;"	m	struct:plistelem
+firstrmaxis	maxis.c	/^static	int firstrmaxis = 1;$/;"	v	file:
+fix	bktdsat.c	/^void fix(void)$/;"	f
+fixed	bktdsat.c	/^int fixed;$/;"	v
+fixedclr	greedy.c	/^colortype bestclr,fixedclr;$/;"	v
+getacoloring	colorrtns.c	/^void getacoloring(popmembertype *m, char *name, int *which)$/;"	f
+getcheat	graph.c	/^void getcheat(FILE *fp)$/;"	f
+getcolorinfo	colorrtns.c	/^void getcolorinfo( popmembertype *member)$/;"	f
+getgraph	graph.c	/^void getgraph(char *file)$/;"	f
+graph	graph.c	/^adjacencytype graph[GRAPHSIZE];$/;"	v
+greedy	greedy.c	/^void greedy($/;"	f
+greedytype	greedy.h	/^typedef int greedytype;$/;"	t
+hash	tabu.c	/^char hash[MAXHASH];$/;"	v
+i	bkdmain.c	/^long seconds,microsecs,i;$/;"	v
+i	dmain.c	/^long seconds,microsecs,i;$/;"	v
+i	gmain.c	/^long seconds,microsecs,i;$/;"	v
+i	igmain.c	/^long seconds,microsecs,i;$/;"	v
+i	mmain.c	/^long seconds,microsecs,i;$/;"	v
+i	tbumain.c	/^long seconds,microsecs,i;$/;"	v
+impact	bktdsat.c	/^int impact(vertextype v, colortype c)$/;"	f
+impact	bktdsat.c	/^short impact[MAXVERTEX][MAXCLR];$/;"	v
+incdeg	colorrtns.c	/^int incdeg(struct vrtxandclr *a, struct vrtxandclr *b)$/;"	f
+indset	maxis.c	/^void indset($/;"	f
+initializeClrSelect	greedy.c	/^void initializeClrSelect($/;"	f
+initnbr	graph.h	85;"	d
+insert	partition.c	/^void insert(vertextype v, colortype p) \/* at head of list p *\/$/;"	f
+intfcbk	bktdsat.c	/^void intfcbk()$/;"	f
+intfcig	itrgrdy.c	/^void intfcig()$/;"	f
+invertbyte	graph.c	/^void invertbyte(unsigned char *byte)$/;"	f
+isinfo	maxclique.c	/^typedef struct isinfo {$/;"	s	file:
+isinfo	maxis.c	/^typedef struct isinfo {$/;"	s	file:
+isnbr	graph.h	86;"	d
+isnotnbr	maxclique.c	73;"	d	file:
+istype	maxclique.c	/^} istype;$/;"	t	file:
+istype	maxis.c	/^} istype;$/;"	t	file:
+itrgrdy	itrgrdy.c	/^void itrgrdy($/;"	f
+kempe	greedy.c	/^void kempe( popmembertype *member)$/;"	f
+key	tabu.c	/^int key[MAXTABU];$/;"	v
+lbfs	gmain.c	/^void lbfs(popmembertype *m, int *secondary)$/;"	f
+lclindex	bktdsat.c	/^vertextype lclindex[MAXCLR+MAXVERTEX];$/;"	v
+limit	maxclique.c	/^static	int limit,usort,msort;$/;"	v	file:
+limit	maxis.c	/^static	int limit,usort,msort;$/;"	v	file:
+listtype	partition.h	/^} listtype;$/;"	t
+main	bkdmain.c	/^int main(int argc, char *argv[])$/;"	f
+main	dmain.c	/^int main(int argc, char *argv[])$/;"	f
+main	gmain.c	/^int main(int argc, char *argv[])$/;"	f
+main	igmain.c	/^int main(int argc, char *argv[])$/;"	f
+main	mmain.c	/^int main(int argc, char *argv[])$/;"	f
+main	tbumain.c	/^int main(int argc, char *argv[])$/;"	f
+maxbranch	bktdsat.c	/^int maxbranch;$/;"	v
+maxclique	maxclique.c	/^int maxclique( popmembertype *m)$/;"	f
+maxindex	greedy.c	/^static colortype maxindex;$/;"	v	file:
+maxlimit	bktdsat.c	/^int minlimit,maxlimit;$/;"	v
+maxsat	bktdsat.c	/^colortype bestcolor,maxsat,minsat;$/;"	v
+memtopart	partition.c	/^void memtopart( popmembertype *m)$/;"	f
+microsecs	bkdmain.c	/^long seconds,microsecs,i;$/;"	v
+microsecs	dmain.c	/^long seconds,microsecs,i;$/;"	v
+microsecs	gmain.c	/^long seconds,microsecs,i;$/;"	v
+microsecs	igmain.c	/^long seconds,microsecs,i;$/;"	v
+microsecs	mmain.c	/^long seconds,microsecs,i;$/;"	v
+microsecs	tbumain.c	/^long seconds,microsecs,i;$/;"	v
+midcmp	maxclique.c	/^int midcmp( istype *a, istype *b)$/;"	f
+midcmp	maxis.c	/^int midcmp( istype *a, istype *b)$/;"	f
+middeg	maxclique.c	/^int middeg;$/;"	v
+middeg	maxis.c	/^int middeg;$/;"	v
+minlimit	bktdsat.c	/^int minlimit,maxlimit;$/;"	v
+minmax	bktdsat.c	/^int minmax;$/;"	v
+minsat	bktdsat.c	/^colortype bestcolor,maxsat,minsat;$/;"	v
+move	bktdsat.c	/^void move(vertextype v, int newsatur)$/;"	f
+movevertex	partition.c	/^void movevertex(vertextype v, colortype p)$/;"	f
+msort	maxclique.c	/^static	int limit,usort,msort;$/;"	v	file:
+msort	maxis.c	/^static	int limit,usort,msort;$/;"	v	file:
+nbconf	partition.h	/^	vertextype nbconf; \/* how many conflicts between this vertex and others$/;"	m	struct:vlistelem
+next	greedy.c	/^vertextype start[MAXVERTEX + 1], next[MAXVERTEX+1];$/;"	v
+next	partition.h	/^	vertextype next; \/* next vertex in partition list *\/$/;"	m	struct:vlistelem
+nextClr	greedy.c	/^colortype nextClr($/;"	f
+nextv	bktdsat.c	/^vertextype nextv[MAXCLR+MAXVERTEX];$/;"	v
+numInConflict	partition.c	/^long numInConflict; \/* number of vertices in conflict *\/$/;"	v
+numcolored	bktdsat.c	/^vertextype numcolored;$/;"	v
+numcolors	colorrtns.h	/^        colortype       numcolors; \/* number of colors used *\/$/;"	m	struct:clrinfo
+order	graph.c	/^vertextype order;$/;"	v
+overallbest	itrgrdy.c	/^popmembertype bestmem,overallbest;$/;"	v
+part	partition.h	/^	colortype part; \/* which partition is vertex in *\/$/;"	m	struct:vlistelem
+partitionflag	graph.c	/^int partitionflag;$/;"	v
+partitionnumber	graph.c	/^int partitionnumber;$/;"	v
+partlist	partition.c	/^parttype  partlist[MAXCOLOR];$/;"	v
+partset	graph.c	/^int partset[MAXVERTEX];$/;"	v
+parttomem	partition.c	/^void parttomem( popmembertype *m)$/;"	f
+parttype	partition.h	/^} parttype;$/;"	t
+permute	colorrtns.c	/^void permute($/;"	f
+permvec	itrgrdy.c	/^int permvec[MAXVERTEX+1];$/;"	v
+pimpact	bktdsat.c	/^void pimpact(void)$/;"	f
+plistelem	partition.h	/^typedef struct plistelem {$/;"	s
+popmember	colorrtns.h	/^struct popmember {$/;"	s
+popmembertype	colorrtns.h	/^typedef struct popmember popmembertype;$/;"	t
+possible	maxclique.c	/^	vertextype	possible, \/*vertex not incident to any in IS *\/$/;"	m	struct:isinfo
+possible	maxis.c	/^	vertextype	possible, \/*vertex not incident to any in IS *\/$/;"	m	struct:isinfo
+prev	bktdsat.c	/^vertextype prev[MAXCLR+MAXVERTEX];$/;"	v
+printcoloring	colorrtns.c	/^void printcoloring( popmembertype *member)$/;"	f
+printgraph	graph.c	/^void printgraph(graph,order)$/;"	f
+printinfo	colorrtns.c	/^void printinfo( popmembertype *member)$/;"	f
+printperm	colorrtns.c	/^void printperm(popmembertype *m)$/;"	f
+printpurity	colorrtns.c	/^void printpurity( popmembertype *member)$/;"	f
+printsets	greedy.c	/^void printsets($/;"	f
+read_graph_DIMACS_ascii	graph.c	/^void read_graph_DIMACS_ascii(char *file)$/;"	f
+read_graph_DIMACS_bin	graph.c	/^void read_graph_DIMACS_bin( char *file)$/;"	f
+revblckcount	itrgrdy.c	/^void revblckcount( popmembertype *mem)$/;"	f
+revvec	itrgrdy.c	/^void revvec(int size)$/;"	f
+rmaxis	maxis.c	/^void rmaxis( popmembertype *m, int respect)$/;"	f
+satur	bktdsat.c	/^vertextype satur[MAXVERTEX];$/;"	v
+search	brute.c	/^int search( int depth, int conflim)$/;"	f
+seconds	bkdmain.c	/^long seconds,microsecs,i;$/;"	v
+seconds	dmain.c	/^long seconds,microsecs,i;$/;"	v
+seconds	gmain.c	/^long seconds,microsecs,i;$/;"	v
+seconds	igmain.c	/^long seconds,microsecs,i;$/;"	v
+seconds	mmain.c	/^long seconds,microsecs,i;$/;"	v
+seconds	tbumain.c	/^long seconds,microsecs,i;$/;"	v
+selectFirstClr	greedy.c	/^colortype selectFirstClr($/;"	f
+selectrand	tabu.c	/^void selectrand( tabuinfotype *info)$/;"	f
+setedge	graph.h	79;"	d
+setvec	itrgrdy.c	/^void setvec(int size)$/;"	f
+shufflevec	itrgrdy.c	/^void shufflevec( int start,int num, int permvec[])$/;"	f
+start	greedy.c	/^vertextype start[MAXVERTEX + 1], next[MAXVERTEX+1];$/;"	v
+stirclr	greedy.c	/^void stirclr($/;"	f
+stopflag	bktdsat.c	/^int stopflag = 0;$/;"	v
+stopflag	itrgrdy.c	/^int stopflag = 0; \/* reset to terminate *\/$/;"	v
+structinit	partition.c	/^void structinit()$/;"	f
+tabucol	tabu.c	/^void tabucol($/;"	f
+tabuinfotype	tabu.h	/^} tabuinfotype;$/;"	t
+target	bktdsat.c	/^colortype target;$/;"	v
+targetK	partition.c	/^colortype targetK; \/* number of partition elements *\/$/;"	v
+tbinf	tabu.h	/^typedef struct tbinf {$/;"	s
+tmp	bkdmain.c	/^struct rusage tmp;$/;"	v
+tmp	dmain.c	/^struct rusage tmp;$/;"	v
+tmp	gmain.c	/^struct rusage tmp;$/;"	v
+tmp	igmain.c	/^struct rusage tmp;$/;"	v
+tmp	mmain.c	/^struct rusage tmp;$/;"	v
+tmp	tbumain.c	/^struct rusage tmp;$/;"	v
+to	tabu.h	/^	colortype to; \/* to which partition  *\/$/;"	m	struct:tbinf
+total	colorrtns.h	/^        int     total;  \/* sum of colors (weight)  used *\/$/;"	m	struct:clrinfo
+trivial_color	colorrtns.c	/^void trivial_color( popmembertype *m)$/;"	f
+twoDarray	maxclique.c	/^typedef istype twoDarray[MAXIS][MAXVERTEX];$/;"	t	file:
+twoDarray	maxis.c	/^typedef istype twoDarray[MAXIS][MAXVERTEX];$/;"	t	file:
+twoDarrayp	maxclique.c	/^typedef twoDarray *twoDarrayp;$/;"	t	file:
+twoDarrayp	maxis.c	/^typedef twoDarray *twoDarrayp;$/;"	t	file:
+udgcmp	maxclique.c	/^int udgcmp( istype *a, istype *b)$/;"	f
+udgcmp	maxis.c	/^int udgcmp( istype *a, istype *b)$/;"	f
+updateClrSelect	greedy.c	/^void updateClrSelect($/;"	f
+updegcnt	itrgrdy.c	/^void updegcnt( popmembertype *mem)$/;"	f
+usort	maxclique.c	/^static	int limit,usort,msort;$/;"	v	file:
+usort	maxis.c	/^static	int limit,usort,msort;$/;"	v	file:
+vc	colorrtns.h	/^        vrtxandclrtype vc[MAXVERTEX];$/;"	m	struct:popmember
+vdelete	partition.c	/^void vdelete(vertextype v)$/;"	f
+verifycolor	colorrtns.c	/^void verifycolor(popmembertype *m)$/;"	f
+vertex	colorrtns.h	/^        vertextype vertex;$/;"	m	struct:vrtxandclr
+vertex	tabu.h	/^	vertextype vertex; \/* which vertex is being moved *\/$/;"	m	struct:tbinf
+vertexlist	partition.c	/^listtype  vertexlist[MAXVERTEX];$/;"	v
+vertextype	graph.h	/^typedef int vertextype;$/;"	t
+vlistelem	partition.h	/^typedef struct vlistelem {$/;"	s
+vrtxandclr	colorrtns.h	/^struct vrtxandclr {$/;"	s
+vrtxandclrtype	colorrtns.h	/^typedef struct vrtxandclr vrtxandclrtype;$/;"	t
+where	partition.h	/^	vertextype where; \/* position in conflictList if it has > 0 conflicts*\/$/;"	m	struct:vlistelem

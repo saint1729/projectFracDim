@@ -1,0 +1,52 @@
+Alpha.Append[{{A[[1]], B[[1]]}}]                                                            0
+{{A[[2]], B[[2]]}}                                                                          1
+
+Append[Alpha, {A[[2]], B[[2]]}]                                                             1
+Append[{a, b, c, d}, x]                                                                     1   r.W
+GraphPlot[{4->3, 5->3, 5->4, 6->1, 6->2, 6->4, 6->5}]                                       1
+Graph[{4->3, 5->3, 5->4, 6->1, 6->2, 6->4, 6->5}]                                           1
+
+g = Graph[{UndirectedEdge[1, 2], UndirectedEdge[2, 3], UndirectedEdge[3, 1]}]               1
+
+
+Needs["GraphUtilities`"];
+Needs["Combinatorica`"];
+path = "/home/tsn/Desktop/cse_project/mathematica/real_network/dolphin";
+edgeNodes = ReadList[path, Number];
+edgeNo = Length[edgeNodes];
+node1 = Table[0, {edgeNo/2}];
+Do[
+ node1[[i]] = edgeNodes[[2*i - 1]] + 1;
+ , {i, 1, edgeNo/2}]
+(*node1*)
+node2 = Table[0, {edgeNo/2}];
+Do[
+ node2[[i]] = edgeNodes[[2*i]] + 1;
+ , {i, 1, edgeNo/2}]
+(*node2*)
+nodeNo = Max[node1, node2];
+(*nodeNo*)
+edges = {};
+Do[
+ edges = Append[edges, node1[[i]] -> node2[[i]]];
+ , {i, 1, edgeNo/2}]
+(*edges*)
+g1 = ToCombinatoricaGraph[edges];
+g1[[3]] = EdgeDirection -> False;
+lB = 2;
+(*g1*)
+(*lB*)
+edges2 = {};
+Do[
+ pathLen = Length[ShortestPath[g1, i, j]] - 1;
+ (*Print[{i, j}, pathLen];*)
+ 
+ If[pathLen > lB, edges2 = Append[edges2, i -> j]];
+ , {i, 1, nodeNo - 1}, {j, i + 1, nodeNo}]
+
+(*edges2*)
+g2 = ToCombinatoricaGraph[edges2];
+g2[[3]] = EdgeDirection -> False;
+(*g2;*)
+NB = ChromaticNumber[g2];
+NB(**)

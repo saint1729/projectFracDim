@@ -1,0 +1,457 @@
+
+revised 6/23/92
+
+DEVELOPING ALGORITHMS FOR MEASURING FRACTAL DIMENSION 
+-- notes by j.j. sarraille
+
+WHAT ARE FRACTALS?  DOES ANYBODY KNOW EXACTLY? 
+Ironically, the definition of the word "fractal" is somewhat
+fuzzy.  I won't attempt to give a rigorous definition of the
+term.
+
+HERE IS WHAT WE THINK FRACTALS ARE.
+In popular terms, fractals are sets that appear to have complex
+structure no matter what scale is used to examine them.  One
+consequence of this definition is that true fractals must be
+infinite sets.  Often, but not always, fractals have the same
+granularity across scales, or are even self-similar across
+scales, so that one tends to see the same quality of structure
+in a fractal as one zooms in on it.  Well-behaved fractals such
+as these are the ones that have a well-defined fractal
+dimension.
+
+FRACTAL CURVES CAN FILL SPACE.
+Many fractals are CONTINUOUS sets which are nevertheless very
+much lacking in SMOOTHNESS, to the point that they fill up more
+space than one would normally expect.  For example, we tend to
+expect a "curve" to be one-dimensional.  A FRACTAL curve can
+have a graph that appears to occupy the entire area of a square
+in two-dimensional space.  
+
+HOW DO FRACTALS RELATE TO CHAOTIC SYSTEMS? 
+The phase-plane and Poincare maps of chaotic systems have a
+fractal structure.  We can hope to recognize, classify and
+understand such maps of chaos by measuring their fractal
+properties.  This in turn shows promise for increasing our
+understanding of the complex forces, processes, and phenomena
+that affect ourselves, our world, and even the universe.
+
+FRACTAL DIMENSION IS A TOOL FOR RECOGNIZING CHAOS. 
+The FRACTAL DIMENSION is such a fractal property.  It's use as
+a classification tool holds promise because it is relatively
+easy to estimate the fractal dimension of a set S, because we
+know that a chaotic system gave rise to the set S if this
+dimension is not an integer, and because the value of the
+dimension gives us some indication of what type of chaotic
+system gave rise to S.
+
+THESE NOTES ARE AN OVERVIEW OF METHODS AND ALGORITHMS FOR
+COMPUTING FRACTAL DIMENSION. 
+I'll review a few methods that can be used to calculate fractal
+dimension.  The methods are not equivalent.  The different
+methods can give different values for the fractal dimension of
+a given set, even in cases where the values are absolutely
+precise.  However, the methods are strongly related, and often
+do yield the same results.
+
+WHAT DOES FRACTAL DIMENSION MEASURE? 
+In all cases that I know about, fractal dimension is an
+indication of how much space a given set "comes near".  For
+example, a ball of twine appears 3-dimensional because it
+"comes near" enough of the volume of a sphere to deceive our
+eyes.  The Cantor set is another example.  All its points lie
+on a straight line, but it is so full of gaps that no complete
+line segment, no matter how short, is contained in it.  This is
+reflected in the fact that its fractal dimension is about 0.63,
+quite a bit less than 1.
+
+CAPACITY DIMENSION
+
+THE CARDINALITY OF A COVERING IS INVERSELY PROPORTIONAL TO e^D. 
+Suppose you have a line segment.  Suppose that you try to cover
+it with squares of a certain size, and find that you need three
+of them to do it.  If you then tried to see how many squares of
+half the original size were required to cover the segment, it
+would not surprise you to find that it requires six -- twice as
+many.  Thus the number of squares required to cover the segment
+is inversely proportional to the size of the squares.  The
+covering of any smooth, continuous curve works the same way,
+provided that the size of the squares is small enough so that
+the curve is approximated well by straight line segments at
+that scale.  
+
+Thus, for one-dimensional objects, we see that  
+
+N(e) = k/e
+
+(approximately), where e is the side of the square, N(e) is the
+number of squares of that size required to cover the set, and k
+is some constant.  Now suppose that you are covering a scrap of
+paper with little squares.  In this case, if you halve the size
+of the squares, it takes four of the smaller squares to cover
+what one of the larger squares would cover, and so you would
+expect N(e) to increase by a factor of four when e is halved.
+This is consistent with an equation of the form:  
+
+N(e) = k/[e^2].
+
+(Note the use of "x^y" to denote the raising of x to the power
+y.)  From this analysis, it seems reasonable to hypothesize
+that for more arbitrary sets:
+
+N(e) = k/[e^D],
+
+where D is the (possibly fractional) dimension of the set.  In
+other words, we can hope to measure how much of two-dimensional
+space some subset of it comes near by examining how efficiently
+the set can be covered by cells of varying size.
+
+HOW CAN WE USE THE RELATION N=e^D TO FIND D? 
+By solving the formula for D, and taking the limit as e-->0, we
+get the CAPACITY METHOD of estimating D.  It seems to take into
+account the fractal's infinitesimal, or asymptotic, structure.
+This yields the formula:  
+
+D = lim    log[N(e)]
+    e-->0  ---------
+           log(1/e)
+
+(By the way, if we assume that the set is scaled so that it
+fits into a square with side 1, then we get N(1)= k= 1.  In any
+case, the constant k will disappear from the equation when the
+limit is taken.)
+
+
+HOW DO WE ESTIMATE D WHEN WE ONLY HAVE A FINITE SET? 
+In the case of real data, we must always work with a finite set
+S (which we may or may not be able to interpret as a SAMPLE of
+the points from some infinite set).  In the case of a finite
+set, the limit above is always ZERO because eventually e will
+be so small that there will only be one point in each occupied
+cell.  Once e becomes sufficiently small, N(e) becomes equal to
+||S||, the number of points in the set, and the limit above is
+the same as
+
+
+D = lim    log(||S||)
+    e-->0  ---------,
+           log(1/e)
+
+which equals zero, because log(||S||) is a constant and
+log(1/e) grows without bound as e tends to zero.  This is just
+a reflection of the fact that all finite sets are zero
+dimensional -- they have the same dimension as a single point.
+To estimate fractal dimension with a computer algorithm, we
+digitize as large a sample of the set as is practical,
+calculate (or estimate) the values of N(e) for some RANGE of
+values of e, and take as our estimate of the fractal dimension
+some sort of average of those values of 
+
+log[N(e)] 
+--------- 
+log(1/e)  
+
+(In cases where the scaling has not made the proportionality
+constant k in the relation 
+
+N(e)= k*e^D 
+
+equal to 1, the trick is to average instead the slope of a plot
+of log[N(e)] versus log(1/e). This effectively corrects for the
+constant, the slope being the desired estimate of D.)
+
+DISADVANTAGES OF CAPACITY DIMENSION:  
+
+1.  It does not account for the FREQUENCY with which the set in
+question might "visit" the covering cells, and thus local
+properties of the set -- properties pertaining to neighborhoods
+of individual points -- are not distinguishable.
+
+2.  Calculating truly minimal coverings of a set is
+computationally intensive.
+
+ADVANTAGES OF CAPACITY DIMENSION (FOR OUR GROUP): 
+
+1.  We have a simplified algorithm [L-T] that has been found
+accurate by empirical measures, is easy to program, and is
+potentially very fast. 
+
+2.  We have been able to adapt the algorithm to give us other
+versions of fractal dimension with nearly the same speed, and
+apparently the same accuracy.
+
+
+INFORMATION DIMENSION
+
+BACKGROUND: HOW IS IT THAT -log(P) MEASURES INFORMATION OR
+SURPRISE??  A measure of the amount of information (surprise)
+associated with the occurrence of an event E with probability
+P(E) is 
+
+I(E)= -log[P(E)] = log[1/P(E)].
+
+To understand why I(E) is a good measure of "surprise", note
+that if P(E) = 1, then the event is certain, and I(E) = 0 --
+there is no surprise at all when the event occurs.  If P(E)=0,
+then since infinity is the limit of I(E) as P(E) approaches 0,
+this expresses our infinite surprise to witness the
+impossible.  The information function I(E) also has the nice
+property that when an event E is the result of the simultaneous
+occurrence of two independent events F and G, I(E) =
+I(F)+I(G).  This agrees with our intuitive feeling that the
+information conveyed by the simultaneous occurrence of two
+independent events is the sum of what is conveyed by each event
+individually.
+
+FORMULATION OF INFORMATION DIMENSION. 
+In this method, one covers the sample set S with a minimal
+number N(e) of cells of size e.  Let ||S|| denote the number of
+elements in S, and for each of the N(e) cells, let N(e,i) be
+the number of points in cell number i.  Set P(e,i) =
+N(e,i)/||S|| -- the sample probability that a point of S is in
+the i'th cell.
+
+I(e) MEASURES AVERAGE SURPRISE IN LEARNING WHICH e-CELL A POINT
+IS IN.  The quantity -log[P(e,i)] measures the information
+conveyed by knowing that a point of S is in the i'th cell of
+the covering, and the AVERAGE
+
+          N(e)                    
+          ___                     
+          \                       
+ I(e) =   /___ -P(e,i)log(P(e,i)) 
+           i=1                     
+
+measures the average information conveyed by knowing what cell
+a point of S is in.
+
+INFORMATION DIMENSION IS A GENERALIZATION OF CAPACITY DIMENSION. 
+Now note that when all the probabilities are equal, each P(e,i)
+is equal to 1/N(e), and the sum above is just I(e)=log[N(e)].
+This is, in fact, the maximum possible value of I(e).  We can
+interpret the lower values that might occur as quantifying the
+non-uniformity of the distribution of the points, or
+alternatively, as correcting the dimension estimate by giving
+less weight to the cells that contain relatively few points.
+
+Thus if we define a fractal dimension by:  
+
+D =  lim      I(e)    
+    e-->0  ----------,
+            log(1/e)  
+
+we get a formulation of fractal dimension that is similar to
+the capacity dimension:  
+
+D = lim    log[N(e)]   
+   e-->0  ------------,
+           log(1/e)    
+
+but which gives a value different from the capacity dimension
+when the distribution of the set over the covering is
+non-uniform.
+
+HOW IS THE FORMULA FOR INFORMATION DIMENSION USED IN PRACTICE
+TO YIELD AN ESTIMATE OF FRACTAL DIMENSION? 
+This is done just as described previously -- averaging
+techniques are used in place of the limit calculation, which is
+not feasible when working with a finite sample (the calculation
+of the limit may be computationally intractable anyway, even
+when we know how to specify the infinite set precisely).
+
+
+CORRELATION DIMENSION
+
+FORMULATION OF CORRELATION DIMENSION. 
+Correlation dimension can be calculated using the distances
+between each pair of points in the set S, 
+
+s(i,j)= ||x(i)- x(j)||.
+
+This gives us ||S||^2 values, and we can calculate sample
+correlation functions C(r) with the formula:
+
+C(r) = (1/||S||^2) * ( # of pairs (i,j) with s(i,j) < r )
+
+These C(r) have been found to exhibit a power law like the one
+we saw for capacity dimension:  C(r) = k*r^D; and we can aim to
+find D with estimation techniques derived from the formula:
+  
+D =  lim    log[C(r)]  
+     r-->0  ----------- 
+              log(r)    
+
+
+OPTICAL DEVICE FOR ESTIMATING CORRELATION DIMENSION!! 
+Correlation dimension can be measured very directly with an
+OPTICAL DEVICE.  Two films are prepared containing the sample
+of points, in such a manner that light is able to pass through
+the images of the points, but is blocked by the rest of the
+film.  The two films are held parallel to each other while
+light is focused on one of the films, and the total quantity of
+light emerging from the second film is measured.  Light passing
+through a point x on the first film shines on the second film,
+over the surface of a disk centered on the image of x, and
+having radius r determined by the distance between the films.
+Thus the points at distance r or less from x on the second film
+emanate light that came through the image of x on the first
+film.  It is not hard to see that the total light emanating
+from the second film is proportionate to C(r), the number of
+pairs of points that are at distance r or less from each
+other.  (This is true for wavelengths of incoherent light much
+smaller than the size of the apertures representing the points
+in the set.)  With such a device, it is thus possible to
+rapidly calculate values of C(r) for various values of r, and
+to arrive at an estimate of D.  This is potentially a superb
+method of calculating D in terms of speed and cost
+effectiveness.  The technique has been used by Lee and Moon
+[Moon] on an experimental device, with excellent results. I
+have not heard if such a device is yet commercially available.
+
+THE CATCH?  IT'S ONLY GOOD FOR AN EMBEDDING
+DIMENSION OF 1 OR 2. 
+If the set S cannot be embedded in a plane, this optical
+technique is not suitable.  (Is there hope for higher embedding
+dimensions by using projections and reflectors??  We don't
+know.)  
+
+
+RELATIONS AMONG THE DIMENSIONS  
+
+AN INEQUALITY RELATES THREE OF THE DIMENSIONS: 
+
+correlation          information          capacity                
+ dimension     <=     dimension     <=    dimension               
+
+GETTING ALL THREE FROM THE SAME FORMULA!! 
+Moon indicates that estimators of all three dimensions can be
+derived from the same formula.  One takes
+
+                       N(e)             
+                      ____              
+           1          \                 
+I(q,e) = ----- log {  /____  P(m,e)^q  }
+          1-q          m=1              
+
+where P(i,e)^q is the q'th power of the proportion of the
+points of S that lie in the i'th cell of a minimal covering by
+cells of size e, and N(e) is the number of cells in such a
+covering.  If we define 
+
+
+         I(q,e) 
+D(q) =  --------
+         log(e) 
+
+then for q=0, 1, and 2, D(q) is an estimator of capacity
+dimension, information dimension, and correlation dimension,
+respectively. (The limit of I(q,e) as q-->1 must be used in the
+case of q = 1.)
+
+THIS HAS MADE US REALIZE THAT ALL THREE CAN BE ESTIMATED IN
+N*LOG(N) TIME! 
+One of us noticed that the basic methodology reported in [L-T]
+can be adapted to provide an algorithm for calculating good
+estimates of the quantities P(i,e) in N*log(N) time, where N is
+the number of points in the set S.  This made us realize that a
+very fast algorithm exists for computing a good estimate of any
+D(q) -- for any embedding dimension.  The fd3 program exploits
+this idea to get estimates for q = 0, 1, and 2.
+
+We must be careful, however, not to be over-trusting of the
+values these algorithms give us.  We do not yet understand
+enough about error bounds to make pronouncements about the
+accuracy of such algorithms.  Nevertheless, these techniques
+appear promising to us, and we are hopeful that a combination
+of empirical and formal studies will prove them to be
+adequate.  
+
+
+POINTWISE DIMENSION
+
+THE FORMULATION OF POINTWISE DIMENSION. 
+The pointwise dimension is sensitive to the behavior of the set
+in the vicinity of a specific point.  Let S be the sample of
+the set whose dimension is to be estimated.  Let R be the
+embedding space (if S is a subset of the (real) plane, then R
+could be the plane.  R may be 3-D space, or whatever size space
+is required to allow S to be a subset.)  Let B(r;x) denote the
+set of all points in R whose distance from x is less than r.
+B(r;x) is a disk if R is 2-D, and is a filled-in sphere if R is
+3-D).  Let N(r,x) denote the number of elements of S contained
+in B(r;x).  Let P(r,x) = N(r,x)/||S||, where ||S|| is the
+number of points in S.  Then P(r,x) is a sample probability --
+an estimate of the probability of finding a point of S inside
+B(r;x).  It should be intuitively clear that P(r,x) will be
+proportionate to r when S is a uniform sampling of a
+1-dimensional set, and proportionate to r^2 when S is a uniform
+sampling of a 2-dimensional set.  Thus, like we did in the
+previous section, we might settle on the formula
+
+P(r,x) = k*r^D(r,x),
+
+and we might further assume that k = 1, as long as the points
+are scaled so that the distance between each pair of them is
+less than 1.  Note that D is a function of x in this
+formulation, and that, in general, it would be possible for
+different values of D to exist at different points x.  D is
+also a function of r here, but we would expect there to be a
+limit value of D as r tends to 0.  This leads to:  
+
+D(x) = lim     log[P(r,x)] 
+      r-->0   -------------
+                  log(r)   
+
+USING POINTWISE DIMENSION TO GET AN OVERALL FRACTAL DIMENSION
+ESTIMATE: 
+One may estimate D(x) by suitably averaging computed values of
+log[P(r,x)]/log(r).  This gives us a way to measure the local
+fractal properties of the set, near any of its points we care
+to choose.  One may also estimate the overall fractal dimension
+of S by averaging some of the estimates of D(x), or by working
+with average values of P(r,x).
+
+
+
+----------------------------------- 
+REFERENCES:
+
+[Moon] Chaotic Vibrations, Francis C. Moon, Wiley 1987, ISBN
+0-471-85685- 1.
+
+[L-T] Liebovitch and Toth, A Fast Algorithm To Determine
+Fractal Dimensions By Box Counting, Physics Letters A,
+141,386-390 (1989)
+
+
+----------------------------------- 
+information about the author of these notes:
+
+John Sarraille, Professor,
+Computer Science Dept,
+CSU Stanislaus,
+Turlock, CA 95380
+
+e-mail: john@ishi.csustan.edu
+
+----------------------------------- 
+/* BEGIN NOTICE
+
+Copyright (c) 1992 by John Sarraille and Peter DiFalco
+(john@ishi.csustan.edu)
+
+Permission to use, copy, modify, and distribute this software
+and its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation.
+
+The algorithm used in this program was inspired by the paper
+entitled "A Fast Algorithm To Determine Fractal Dimensions By
+Box Counting", which was written by Liebovitch and Toth, and
+which appeared in the journal "Physics Letters A", volume 141,
+pp 386-390, (1989).
+
+This program is not warranteed: use at your own risk.
+
+END NOTICE */

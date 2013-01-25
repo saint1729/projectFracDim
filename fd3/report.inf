@@ -1,0 +1,231 @@
+
+		A Guide to Reading Reports Output by FD3
+
+
+Here is a sample output of fd3, with some helpful comments
+inserted (COMMENTS ARE IN CAPITAL LETTERS):
+
+******************************************************************
+  FRACTAL DIMENSION REPORT -- by fd software (DiFalco/Sarraille)
+******************************************************************
+
+
+Reporting on file named: can1k.3d.
+                         ^^^^^^^^ THE USER TYPED "fd3 can1k.3d"
+                                  ON THE COMMAND LINE.
+
+Getting the embedding dimension ...
+Embedding Dimension taken to be: 3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ FD3 FOUND THAT THERE WERE
+         THREE COORDINATES ON THE FIRST DATA LINE, AND
+	 CONCLUDED THAT ALL DATA LINES IN THIS INPUT FILE HAVE
+	 THREE COORDINATES ON THEM.
+
+Finding max and min values in data ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^ FD3 NEEDS THESE IN ORDER TO
+                                   RE-SCALE THE DATA.
+
+Minimum value in input file is: 0.000036 ...
+Maximum value in input file is: 0.999987 ...
+
+32 different cell sizes will be used ...
+Data will be shifted and re-scaled so that minimum coordinate
+value is ZERO and maximum coordinate value is: 4294967295 ...
+
+THIS TRANSFORMATION OF THE DATA IS NECESSARY IN ORDER FOR THE
+FAST ALGORITHM USED BY FD3 TO WORK.  THE SHAPE OF THE DATA SET
+IS *NOT* ALTERED.
+
+Allocating storage ... Done ...
+Initializing queues ... Done ...
+Loading data ... Done ...
+Sorting the data ... Done ... 
+Doing sweep to get counts ... Done ...
+
+
+[log(epsl)]  [CellCount]  [log(CellCount)]  [informtn]  [-log(SumSqrFreqs)]
+ = [log(e)]   = [N(e)]      = [logN(e)]      = [I(e)]     = [-logSSF(e)]
+
+        0         1000           9.96578     9.96578              9.96578
+        1          999           9.96434     9.96378              9.96290
+       ^^^
+CELL SIZES OF
+1, 2, 4, 8, ETC
+ARE USED.  THIS COLUMN
+SHOWS THE LOGS OF EACH
+CELL SIZE TO THE BASE 2.
+
+        2          998           9.96290     9.96178              9.96003
+        3          998           9.96290     9.96178              9.96003
+                   ^^^
+             THIS FIGURE GIVES THE
+             NUMBER OF CELLS REQUIRED
+             TO COVER THE SET.  FOR
+             EXAMPLE, THIS PARTICULAR
+             COUNT APPLIES TO CELLS OF
+             SIZE 2^^3 = 8.
+
+        4          998           9.96290     9.96178              9.96003
+        5          997           9.96145     9.95978              9.95715
+                                 ^^^^^^^
+                            THIS FIGURE IS JUST THE
+                            LOG TO THE BASE 2 OF THE
+                            CORRESPONDING CELL COUNT.
+
+        6          996           9.96000     9.95778              9.95429
+        7          994           9.95710     9.95378              9.94857
+                                             ^^^^^^^
+                                         THIS FIGURE IS OBTAINED
+                                         BY SUMMING THE SAMPLE
+                                         FREQUENCY OF POINTS IN
+                                         EACH OCCUPIED CELL TIMES
+                                         THE LOG OF THE FREQUENCY.
+					 SUCH NUMBERS ARE USED TO
+					 ESTIMATE THE INFORMATION
+					 DIMENSION.
+
+        8          992           9.95420     9.94978              9.94288
+        9          983           9.94105     9.93178              9.91755
+                                                                  ^^^^^^^
+
+						  THIS FIGURE IS OBTAINED BY
+						  SUMMING THE SQUARES OF THE
+						  SAMPLE FREQUENCIES.  THESE
+						  NUMBERS ARE USED TO ESTIMATE
+						  THE CORRELATION DIMENSION.
+
+       10          975           9.92926     9.91503              9.89265
+       11          964           9.91289     9.89303              9.86279
+       12          952           9.89482     9.86752              9.82566
+       13          922           9.84862     9.80525              9.74174
+       14          885           9.78953     9.72824              9.64386
+       15          840           9.71425     9.63295              9.52856
+       16          772           9.59246     9.47789              9.33911
+       17          681           9.41151     9.26276              9.10026
+       18          560           9.12928     8.92970              8.73190
+       19          448           8.80735     8.58118              8.38275
+       20          319           8.31741     8.08084              7.88991
+       21          229           7.83920     7.58426              7.39338
+****************************************************************************
+
+THE INFORMATION BETWEEN THE "STAR BARS" HERE, IS WHAT THE
+PROGRAM TAKES TO BE THE MOST SIGNIFICANT.  FIGURES ABOVE THE
+STAR BARS ARE ASSUMED TO BE IN OR NEAR SATURATION, AND FIGURES
+BELOW THE STAR BARS ARE ASSUMED TO BE TOO COARSE GRAINED.
+
+       22          148           7.20945     7.02644              6.89815
+       23           99           6.62936     6.45337              6.32516
+       24           67           6.06609     5.78224              5.62010
+       25           42           5.39232     5.25480              5.17741
+       26           28           4.80735     4.65834              4.55823
+       27           16           4.00000     3.90607              3.83650
+       28           10           3.32193     3.27427              3.23208
+       29            6           2.58496     2.47251              2.37646
+       30            4           2.00000     1.89188              1.80330
+****************************************************************************
+       31            2           1.00000      1.0000              0.99999
+       32            1           0.00000    -0.00000             -0.00000
+
+
+
+Two-Point Estimates of FD's:
+
+[log(e)]  [logN(e)-logN(2e)]  [I(e)-I(2e)]  [logSSF(2e)-logSSF(e)]
+
+       0             0.00144       0.00200                 0.00288
+       1             0.00144       0.00200                 0.00288
+                     ^^^^^^^       ^^^^^^^                 ^^^^^^^
+                THE FIGURES IN THE LAST THREE COLUMNS HERE ARE OBTAINED BY
+                SIMPLY TAKING DIFFERENCES BETWEEN SUCCESSIVE ENTRIES IN THE
+                CORRESPONDING COLUMNS OF THE TABLES ABOVE.  THEY GIVE
+		"TWO-POINT ESTIMATES" OF RESPECTIVELY, THE CAPACITY
+		DIMENSION, THE INFORMATION DIMENSION, AND THE CORRELATION
+		DIMENSION.
+
+       2             0.00000       0.00000                 0.00000
+       3             0.00000       0.00000                 0.00000
+       4             0.00145       0.00200                 0.00287
+       5             0.00145       0.00200                 0.00287
+       6             0.00290       0.00400                 0.00571
+       7             0.00291       0.00400                 0.00569
+       8             0.01315       0.01800                 0.02534
+       9             0.01179       0.01675                 0.02490
+      10             0.01637       0.02200                 0.02986
+      11             0.01807       0.02551                 0.03713
+      12             0.04619       0.06226                 0.08392
+      13             0.05909       0.07702                 0.09789
+      14             0.07529       0.09528                 0.11530
+      15             0.12179       0.15506                 0.18945
+      16             0.18095       0.21514                 0.23885
+      17             0.28223       0.33306                 0.36837
+      18             0.32193       0.34852                 0.34915
+      19             0.48994       0.50034                 0.49284
+      20             0.47821       0.49658                 0.49653
+      21             0.62975       0.55783                 0.49523
+****************************************************************************
+      22             0.58010       0.57306                 0.57298
+      23             0.56327       0.67113                 0.70506
+      24             0.67377       0.52744                 0.44269
+                     ^^^^^^^
+                  THE MEANING OF THIS FIGURE IS THAT
+                  AT THE SCALE OF CELL SIZES OF 2^^24,
+                  THE SET APPEARS TO HAVE A CAPACITY
+                  DIMENSION OF 0.67377
+
+      25             0.58496       0.59645                 0.61918
+      26             0.80735       0.75227                 0.72173
+                                   ^^^^^^^                 ^^^^^^^
+				SIMILARLY, THESE FIGURES ESTIMATE
+				INFORMATION AND CORRELATION DIMENSION
+				AT SPECIFIC SCALES.
+
+      27             0.67807       0.63180                 0.60442
+      28             0.73697       0.80177                 0.85562
+      29             0.58496       0.58063                 0.57315
+****************************************************************************
+      30             1.00000       0.89188                 0.80331
+      31             1.00000        1.0000                 0.99999
+
+
+22 is the smallest cell size used in the overall dimension estimates
+below.  The largest cell size is 30.  Data above corresponding to
+this range is between rows of asterisks.
+
+
+
+Least-Square Estimates based on Indicated Cell Range:
+
+Fractal Dimension  (Capacity)   =  0.66419
+Fractal Dimension (Information) =  0.64743
+Fractal Dimension (Correlation) =  0.63904
+
+EACH ESTIMATE ABOVE IS OBTAINED BY FITTING A LINE TO A GRAPH OF
+THE LOG(EPSILON) COLUMN VERSUS ANOTHER COLUMN.  THE LAST THREE
+COLUMNS OF THE FIRST TABLE ABOVE ARE USED TO GET, RESPECTIVELY,
+THE CAPACITY DIMENSION, THE INFORMATION DIMENSION, AND THE
+CORRELATION DIMENSION.  ONLY THE DATA BETWEEN THE STAR BARS IS
+USED IN THE FITTING OF THE LINE, SINCE IT IS PRESUMED THAT THE
+GRAPH IS DISTORTED OUTSIDE THIS REGION.
+
+****************************************
+
+/* BEGIN NOTICE
+
+Copyright (c) 1992 by John Sarraille and Peter DiFalco
+(john@ishi.csustan.edu)
+
+Permission to use, copy, modify, and distribute this software
+and its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation.
+
+The algorithm used in this program was inspired by the paper
+entitled "A Fast Algorithm To Determine Fractal Dimensions By
+Box Counting", which was written by Liebovitch and Toth, and
+which appeared in the journal "Physics Letters A", volume 141,
+pp 386-390, (1989).
+
+This program is not warranteed: use at your own risk.
+
+END NOTICE */

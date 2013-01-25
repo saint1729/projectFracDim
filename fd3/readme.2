@@ -1,0 +1,241 @@
+
+
+HOW TO USE FD3, VERSION 0.3.
+
+A PROGRAM FOR CALCULATING FRACTAL DIMENSION.
+
+What follows is a fairly detailed set of directions for using
+the fractal dimension (FD3) program.  We are aware that many of
+the potential users are not well-aquainted with computing
+systems, and we have made an effort to make this document
+somewhat accessible to them.  We hope that the more
+sophisticated readers will bear with us.
+
+To use the FD3 program, a directory should be created and the
+source files fdqueue.c, fdutil.c, and fddriver.c should be
+copied to it.  The include file fd.h should also be copied to
+the same directory.  The sample inputs and outputs, and the
+files containing documentation of the program probably ought to
+be placed in this directory too.  (To you Unix savants: sorry,
+no man page yet.)  If you are getting an update of a previous
+release of the software, you should put it into a DIFFERENT
+directory from all other versions.
+
+The source files should then be compiled, using the C compiler
+on the host computer.
+
+Compilation is the act of translating the (english-like) source
+version of the program into the machine-executable binary
+version of the program.  Typically, compilation is carried out
+by a special program that runs on the host machine -- a
+compiler.  We can't send you our BINARY form of the program
+because different machines have different machine languages,
+and thus the binary version that runs on our machine would
+probably not run on your machine.  Since the FD3 you are
+getting is written in a source language called "C", a "C
+compiler" is required.
+
+When WE compile the program in a Unix environment, we sometimes
+use the following command:
+
+cc -o fd3 fdqueue.c fdutil.c fddriver.c -lm 
+
+This has the effect of compiling all three source files, linking
+them to the mathematics libraries, and naming the compiled
+version of the program "fd3".  You should consult your C
+compiler's documentation or ask your system administrator for
+help if you are uncertain about this step.  (Again, apologies
+to Unix and C savants -- no makefiles yet.)
+
+Once the program has been compiled, the executable version of
+the program will exist, and will be a named binary file.  We
+assume that you will have given it the name "fd3", but
+obviously, you can give it any name you like, and if the name
+you use is different from ours, you should substitute it below
+where we use "fd3" -- especially where we use it in commands
+that are to be given to the computer!
+
+The simplest way to run the program is to do so while attached
+to a directory containing the executable code, and an input
+file.  In a Unix environment, one then types
+
+fd3 inputfilename
+
+to execute the program with the input taken from the file
+"inputfilename" (instead of literally typing "inputfilename",
+you type the name of the file that you want the program to use
+as input.)  If this does not work in your environment, you may
+have to check with your system administrator to find out the
+conventions for executing a program.  The input file must be of
+the following form:
+
+Line 1: Number, N, of data lines (POINTS) in the input file.
+Line 2: Coordinates of 1st POINT, separated by at least one space or tab.
+Line 3: Coordinates of 2nd POINT, separated by at least one space or tab.
+Line 4: Coordinates of 3rd POINT, separated by at least one space or tab.
+  ...
+  ...
+  ...
+Line n: Coordinates of (N-1)st POINT, separated by at least one space or tab.
+Line n+1: Coordinates of Nth POINT, separated by at least one space or tab.
+
+------------------------------------------
+Example* of a 1-DIMENSIONAL input file:
+------------------------------------------
+10
+5.56
+4.561
+111145
+34.55
+2.2245
+324.55555
+432	
+689.9756
+546.99874
+76.098
+
+------------------------------------------
+Example* of a 2-DIMENSIONAL input file:
+------------------------------------------
+10
+3.34		5.56
+6664.9		4.561
+111145		.776
+234		34.55
+2.2245		0
+2556.3		324.55555
+432		333.0001
+334.987		689.9756
+8765.567	546.99874
+345.45		76.098
+
+------------------------------------------
+Example* of a 3-DIMENSIONAL input file:
+------------------------------------------
+
+10
+2.47		3.34		5.56
+-3.123		6664.9		4.561
+0.334231	111145		0.776
+497650		234		34.55
+217		2.2245		0
+1.23		2556.3		324.55555
+10548		432		333.0001
+2815		334.987		689.9756
+219.85		8765.567	546.99874
+0.0042987	345.45		76.098
+
+##################################################
+
+ * Real data sets ought to be larger than the sample above.  It
+   is not possible for us to say precisely what the
+   requirements for a good sample are.  We have found
+   empirically that we get less than a 5% error in the
+   calculated value of certain fractal dimensions if we use a
+   uniform sample of 200 or more distinct 2-D points.
+   ("Distinct" means the 200 points all have to be different
+   from one another.)
+
+   In general, there is good reason to think that you will need
+   at least around 2^(4*Fd) DISTINCT points, where Fd is the
+   "true" fractal dimension of the underlying set.  ("^" is a
+   symbol for exponentiation and "*" is a symbol for
+   multiplication.)
+
+   Since you don't KNOW Fd (that's what the program is supposed
+   to be telling you!) you can substitute your best guess as to
+   an upper bound in the formula.  Certainly the Fd of your
+   data set is no more than the "embedding dimension", which is
+   the number of coordinates each of your points has.
+   
+   You will most likely need more than what the formula calls
+   for when Fd = 1 or less.  In fact, I would recommend 200 as
+   a minimum if you can possibly get that many points.
+
+   That gives us the following numbers:
+
+   Fd value  		minimal # of points
+
+   1			     200
+   2			     256
+   3			    4,096
+   4			   65,536
+   5			1,048,576
+
+
+ON EACH LINE OF THE INPUT FILE, EXCEPT THE FIRST, YOU SHOULD
+HAVE *ALL* THE COORDINATES OF *EXACTLY ONE* OF THE DATA POINTS.
+
+This is important because the program looks at the second line
+of the input file to determine the embedding dimension.  The
+NUMBER OF NUMBERS ON THAT LINE is taken to be the dimension.
+------------------------------
+
+When fd3 executes, it will write it's output to the default
+output device (usually the screen in front of you).  On
+different systems, different methods exist to "deflect" the
+output to a printer or file.  In our environment, we use such
+command lines as:
+
+fd3 can1K.1D > can1K-1D.rep
+
+which has the effect of redirecting the output to a file called
+"can1K-1D.rep".  We can then use the facilities of our system to
+view "can1K-1D.rep" or print a copy of it if we like.
+
+This program is relatively fast.  (Basically O(NlogN), where N
+is the size of the input file.)  It will turnaround in seconds
+or less if you are inputting hundreds of numbers or a few
+thousand.  But don't expect instantaneous results if your input
+file contains tens of thousands of numbers.
+
+FD3 will tell you what it's doing while it's doing it.  It will
+let you know as it finishes each main phase of the job.  You
+may not be interested in knowing this stuff most of the time,
+but it can be nicely reassuring when you are waiting for a
+long-running analysis to complete.  
+
+FD3 outputs a report of length about two pages.  If you want,
+you can ignore everything but the last few lines.  Assuming
+that there were enough distinct points to satisfy FD3, you will
+see overall estimates of the capacity, information, and
+correlation dimensions of the input set.
+
+If you understand how box-counting works, you can probably
+decode the columns of output above the overall estimates, and
+use them to learn some more about your input set.  A discussion
+of that black art is beyond the scope of this document.  There
+is however, a document called REPORT.INF included in this
+package that should serve to help with the basic interpretation
+of FD3 reports.
+
+This program should be considered a "beta-version", or
+pre-release.  We cannot warrantee the program in any way.  No
+claim is made concerning the quality of the program, or the
+accuracy that you will get using it.  We hope that you WILL use
+it to experiment, and to learn what you can.  We certainly will
+not be surprised if we learn that there are a few bugs in it.
+If you can identify any problems, we would be grateful to have
+your input.
+
+
+/* BEGIN NOTICE
+
+Copyright (c) 1992 by John Sarraille and Peter DiFalco
+(john@ishi.csustan.edu)
+
+Permission to use, copy, modify, and distribute this software
+and its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation.
+
+The algorithm used in this program was inspired by the paper
+entitled "A Fast Algorithm To Determine Fractal Dimensions By
+Box Counting", which was written by Liebovitch and Toth, and
+which appeared in the journal "Physics Letters A", volume 141,
+pp 386-390, (1989).
+
+This program is not warranteed: use at your own risk.
+
+END NOTICE */

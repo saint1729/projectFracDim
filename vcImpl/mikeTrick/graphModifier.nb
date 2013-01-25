@@ -1,0 +1,336 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     12666,        327]
+NotebookOptionsPosition[     12429,        314]
+NotebookOutlinePosition[     12764,        329]
+CellTagsIndexPosition[     12721,        326]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "path", " ", "=", " ", 
+     "\"\</home/tsn/Desktop/cse_project/vcImpl/mikeTrick/realNetwork/power_\
+louvain.txt\>\""}], ";", "\[IndentingNewLine]", 
+    RowBox[{"edges", " ", "=", " ", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{"path", ",", " ", "Number"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"edges2", " ", "=", " ", 
+     RowBox[{"Table", "[", 
+      RowBox[{"0", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "edges", "]"}], "/", "2"}], " ", "+", " ", 
+         "1"}], "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"edges2", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Max", "[", "edges", "]"}], " ", "+", " ", "1"}], ",", " ", 
+       RowBox[{
+        RowBox[{"Length", "[", "edges", "]"}], "/", "2"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Do", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"edges2", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}], " ", "=", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"edges", "[", 
+            RowBox[{"[", 
+             RowBox[{
+              RowBox[{"2", "*", "i"}], " ", "-", " ", "1"}], "]"}], "]"}], 
+           " ", "+", " ", "1"}], ",", " ", 
+          RowBox[{
+           RowBox[{"edges", "[", 
+            RowBox[{"[", 
+             RowBox[{"2", "*", "i"}], "]"}], "]"}], " ", "+", " ", "1"}]}], 
+         "}"}]}], "\[IndentingNewLine]", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", " ", "1", ",", " ", 
+         RowBox[{
+          RowBox[{"Length", "[", "edges", "]"}], "/", "2"}]}], "}"}]}], "]"}],
+      "\[IndentingNewLine]", 
+     RowBox[{"edges2", ";"}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "pathName", " ", "=", " ", 
+       "\"\</home/tsn/Desktop/cse_project/vcImpl/mikeTrick/realNetwork/\
+dolphinDual/sample\>\""}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"pathName", " ", "=", " ", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"pathName", ",", 
+          RowBox[{"ToString", "[", "k", "]"}]}], "]"}]}], "]"}]}], 
+     "\[IndentingNewLine]", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "2", ",", "10"}], "}"}]}], "]"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<GraphUtilities`\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<Combinatorica`\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+    "path", "=", 
+     "\"\</home/tsn/Desktop/cse_project/vcImpl/mikeTrick/realNetwork/data_gml/\
+cumulative_2009-04-28.gml\>\""}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"edgeNodes", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{"path", ",", "Number"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"edgeNo", "=", 
+     RowBox[{"Length", "[", "edgeNodes", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"node1", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{"{", 
+        RowBox[{"edgeNo", "/", "2"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"node2", "=", "node1"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"node1", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", 
+        RowBox[{
+         RowBox[{"edgeNodes", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"2", "*", "i"}], "-", "1"}], "]"}], "]"}], "+", "1"}]}], 
+       ";"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"edgeNo", "/", "2"}]}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "node1", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"node2", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", 
+        RowBox[{
+         RowBox[{"edgeNodes", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", "*", "i"}], "]"}], "]"}], "+", "1"}]}], ";"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"edgeNo", "/", "2"}]}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "node2", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"nodeNo", "=", 
+     RowBox[{"Max", "[", 
+      RowBox[{"node1", ",", "node2"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   
+   RowBox[{"(*", "nodeNo", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"edges", "=", 
+     RowBox[{"{", "}"}]}], ";"}], "\n", 
+   RowBox[{"Do", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"edges", "=", 
+       RowBox[{"Append", "[", 
+        RowBox[{"edges", ",", 
+         RowBox[{
+          RowBox[{"node1", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "\[Rule]", 
+          RowBox[{"node2", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}]}], "]"}]}], ";"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"edgeNo", "/", "2"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+   
+   RowBox[{"(*", "edges", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"g1", "=", 
+     RowBox[{"ToCombinatoricaGraph", "[", "edges", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"g1", "[", 
+      RowBox[{"[", "3", "]"}], "]"}], "=", 
+     RowBox[{"EdgeDirection", "\[Rule]", "False"}]}], ";"}], "\n", 
+   RowBox[{"Dia", "=", "2"}], 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Diameter", "[", "g1", "]"}], ";"}], "*)"}], "\n", 
+   RowBox[{"(*", "Dia", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"lB", "=", 
+     RowBox[{"{", "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"lB", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"lB", ",", "1"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Do", "[", 
+    RowBox[{
+     RowBox[{"lB", "=", 
+      RowBox[{"Append", "[", 
+       RowBox[{"lB", ",", "i"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "2", ",", "Dia"}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"edges2", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"pathLen", "=", 
+          RowBox[{
+           RowBox[{"Length", "[", 
+            RowBox[{"ShortestPath", "[", 
+             RowBox[{"g1", ",", "i", ",", "j"}], "]"}], "]"}], "-", "1"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"i", ",", "j"}], "}"}], ",", "pathLen"}], "]"}], ";"}], 
+          "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"pathLen", "\[GreaterEqual]", 
+            RowBox[{"lB", "[", 
+             RowBox[{"[", "k", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{"edges2", "=", 
+            RowBox[{"Append", "[", 
+             RowBox[{"edges2", ",", 
+              RowBox[{"{", 
+               RowBox[{"i", " ", ",", " ", "j"}], "}"}]}], "]"}]}]}], "]"}], 
+         ";"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"nodeNo", "-", "1"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", 
+          RowBox[{"i", "+", "1"}], ",", "nodeNo"}], "}"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"edges2", " ", "=", " ", 
+       RowBox[{"Prepend", "[", 
+        RowBox[{"edges2", ",", 
+         RowBox[{"{", 
+          RowBox[{"nodeNo", " ", ",", " ", 
+           RowBox[{"Length", "[", "edges2", "]"}]}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+      "pathName", " ", "=", " ", 
+       "\"\</home/tsn/Desktop/cse_project/vcImpl/mikeTrick/realNetwork/2009-\
+04-28_Dual/sample\>\""}], ";", "\[IndentingNewLine]", 
+      RowBox[{"pathName", " ", "=", " ", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"pathName", ",", 
+         RowBox[{"ToString", "[", "k", "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{"pathName", ",", " ", "edges2", ",", " ", "\"\<Table\>\""}], 
+       "]"}], ";"}], "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", " ", "2", ",", " ", "Dia"}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "*)"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.556882997927912*^9, {3.556883034356028*^9, 3.556883157326685*^9}, 
+   3.556883195257747*^9, {3.556883240820487*^9, 3.556883295963202*^9}, {
+   3.556883352544727*^9, 3.55688338168274*^9}, {3.556883424650788*^9, 
+   3.556883432455577*^9}, {3.556883943870674*^9, 3.556884086424094*^9}, {
+   3.556884250854848*^9, 3.556884255126176*^9}, {3.556884339119807*^9, 
+   3.556884340642038*^9}, {3.556884494610173*^9, 3.556884506795178*^9}, {
+   3.556884676509051*^9, 3.556884744364702*^9}, {3.556885025521025*^9, 
+   3.556885073543614*^9}, {3.556885119071772*^9, 3.55688514066102*^9}, {
+   3.55688519172029*^9, 3.556885198154549*^9}, {3.556885253271121*^9, 
+   3.556885253588119*^9}, {3.556885288794584*^9, 3.556885296416033*^9}, {
+   3.556885365589468*^9, 3.556885366795204*^9}, {3.556885407886038*^9, 
+   3.556885452250844*^9}, {3.556885534395292*^9, 3.55688553467463*^9}, {
+   3.556885589606472*^9, 3.556885594785946*^9}, {3.556885722985183*^9, 
+   3.556885730811679*^9}, {3.556885867029452*^9, 3.556885884443149*^9}, {
+   3.556886529441359*^9, 3.556886531917789*^9}, {3.556886570924685*^9, 
+   3.556886571947586*^9}, {3.55688664327164*^9, 3.556886646759127*^9}, {
+   3.556930738987915*^9, 3.556930740706396*^9}, {3.556930781187405*^9, 
+   3.556930861551828*^9}, {3.556930919242752*^9, 3.556930927108393*^9}, 
+   3.556931062897985*^9, {3.556931100506696*^9, 3.556931115503995*^9}, {
+   3.556931234509326*^9, 3.556931266375092*^9}, {3.556931334758122*^9, 
+   3.556931350294571*^9}, {3.556931502482729*^9, 3.556931523094513*^9}, {
+   3.55693162062902*^9, 3.556931908710206*^9}, {3.55693201137572*^9, 
+   3.556932016737724*^9}, {3.556932050453974*^9, 3.556932061528953*^9}, {
+   3.556932120905225*^9, 3.556932122216094*^9}, {3.556932195860927*^9, 
+   3.556932218789375*^9}, {3.556932496008978*^9, 3.556932507351024*^9}, {
+   3.55693254821878*^9, 3.556932555456645*^9}, {3.55693259885991*^9, 
+   3.556932630165592*^9}, {3.556932662178428*^9, 3.556932678636968*^9}, 
+   3.556932893750713*^9, 3.556932935424803*^9, {3.556933237430782*^9, 
+   3.5569332455814*^9}, {3.556933374031355*^9, 3.556933376568626*^9}, {
+   3.556933436803818*^9, 3.55693344130464*^9}, {3.556933819640828*^9, 
+   3.556933980074457*^9}, {3.556934034239759*^9, 3.556934037363763*^9}, {
+   3.556934107683901*^9, 3.556934108566466*^9}, {3.556934330552111*^9, 
+   3.556934358270425*^9}, {3.556934693391596*^9, 3.5569346947094*^9}, {
+   3.556934772749313*^9, 3.556934820902079*^9}, {3.556935461190539*^9, 
+   3.556935478043648*^9}, {3.556935531150115*^9, 3.556935686426964*^9}, {
+   3.556935728150439*^9, 3.556935831504164*^9}, {3.556943878027612*^9, 
+   3.556943891668786*^9}, {3.556951932939926*^9, 3.55695208947492*^9}, {
+   3.556952801534286*^9, 3.556952814612291*^9}, {3.556952904498406*^9, 
+   3.556953023079955*^9}, {3.557042794336952*^9, 3.557042798782397*^9}, {
+   3.557045694719476*^9, 3.557045696419931*^9}, {3.557049648803123*^9, 
+   3.557049654849793*^9}, {3.557049685844732*^9, 3.557049695356784*^9}, {
+   3.55783613613714*^9, 3.557836189298146*^9}, {3.557836265113125*^9, 
+   3.557836292228639*^9}, {3.557836900126691*^9, 3.55783690726564*^9}},
+ EmphasizeSyntaxErrors->True]
+},
+WindowSize->{1310, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Linux x86 (32-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 11868, 292, 1000, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

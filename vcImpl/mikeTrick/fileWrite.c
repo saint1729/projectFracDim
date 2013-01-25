@@ -1,0 +1,9 @@
+#include<stdio.h>
+
+int main() {
+FILE *fp;
+fp = fopen("/home/tsn/Desktop/cse_project/vcImpl/mikeTrick/alpha", "a");
+int x = 20;
+fprintf(fp, "%d\n" ,x);
+return 0;
+}

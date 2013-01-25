@@ -1,0 +1,20 @@
+/* BEGIN NOTICE
+
+Copyright (c) 1992 by John Sarraille and Peter DiFalco
+(john@ishi.csustan.edu)
+
+Permission to use, copy, modify, and distribute this software
+and its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation.
+
+The algorithm used in this program was inspired by the paper
+entitled "A Fast Algorithm To Determine Fractal Dimensions By
+Box Counting", which was written by Liebovitch and Toth, and
+which appeared in the journal "Physics Letters A", volume 141,
+pp 386-390, (1989).
+
+This program is not warranteed: use at your own risk.
+
+END NOTICE */

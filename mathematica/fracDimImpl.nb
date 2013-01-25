@@ -1,0 +1,155 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4215,        145]
+NotebookOptionsPosition[      3980,        132]
+NotebookOutlinePosition[      4315,        147]
+CellTagsIndexPosition[      4272,        144]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<GraphUtilities`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<Combinatorica`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "path", "=", 
+   "\"\</home/tsn/Desktop/cse_project/mathematica/real_network/dolphin\>\""}],
+   ";"}], "\n", 
+ RowBox[{
+  RowBox[{"edgeNodes", "=", 
+   RowBox[{"ReadList", "[", 
+    RowBox[{"path", ",", "Number"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"edgeNo", "=", 
+   RowBox[{"Length", "[", "edgeNodes", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"node1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", 
+      RowBox[{"edgeNo", "/", "2"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"node2", "=", "node1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"node1", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "=", 
+      RowBox[{
+       RowBox[{"edgeNodes", "[", 
+        RowBox[{"[", 
+         RowBox[{
+          RowBox[{"2", "*", "i"}], "-", "1"}], "]"}], "]"}], "+", "1"}]}], 
+     ";"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"edgeNo", "/", "2"}]}], "}"}]}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"node2", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "=", 
+      RowBox[{
+       RowBox[{"edgeNodes", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", "*", "i"}], "]"}], "]"}], "+", "1"}]}], ";"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"edgeNo", "/", "2"}]}], "}"}]}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"nodeNo", "=", 
+   RowBox[{"Max", "[", 
+    RowBox[{"node1", ",", "node2"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"edges", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"edges", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"edges", ",", 
+       RowBox[{
+        RowBox[{"node1", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "\[Rule]", 
+        RowBox[{"node2", "[", 
+         RowBox[{"[", "i", "]"}], "]"}]}]}], "]"}]}], ";"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{"edgeNo", "/", "2"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g1", "=", 
+   RowBox[{"ToCombinatoricaGraph", "[", "edges", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"g1", "[", 
+    RowBox[{"[", "3", "]"}], "]"}], "=", 
+   RowBox[{"EdgeDirection", "\[Rule]", "False"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Dia", "=", 
+   RowBox[{"Diameter", "[", "g1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lB", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"lB", "=", 
+    RowBox[{"Append", "[", 
+     RowBox[{"lB", ",", "i"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "2", ",", "Dia"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", "nodeNo", "}"}], ",", 
+     RowBox[{"{", "nodeNo", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"meanMc", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", "Dia", "}"}]}], "]"}]}], ";"}], "\n"}], "Input",
+ CellChangeTimes->{{3.556864250159727*^9, 3.556864251491025*^9}, {
+  3.556864415382288*^9, 3.556864444843882*^9}}]
+},
+WindowSize->{1310, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Linux x86 (32-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 3419, 110, 392, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
