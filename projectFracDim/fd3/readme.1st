@@ -1,0 +1,57 @@
+
+
+
+			Synopsis of FD3
+ 
+FD3 is a program that estimates fractal dimension.
+
+It was written by John Sarraille and Peter DiFalco, using ideas
+from "A FAST ALGORITHM TO DETERMINE FRACTAL DIMENSION BY BOX
+COUNTING", by Liebovitch and Toth, Physics Letters A, 141,
+386-390 (1989).
+
+FD3 inputs an ascii list of points, basically one point per
+line, and outputs box counts at various scales, plus estimates
+of capacity, information, and correlation dimension.
+
+There are "two-point" estimates of dimension for each scale
+shift (division of cell size by two), plus overall estimates
+based on fitting a least-squares line to a log-log plot of cell
+count versus cell size.
+
+FD3 is quite accurate (typically well within 5% when tested on
+reasonably-sized samples of fractals whose dimension are known
+exactly)
+
+It is quite fast -- O(NlogN) where N is the number of data lines
+(points) input.  
+
+In theory, it will handle any embedding dimension -- points
+with one coordinate each, two coordinates each, three, four,
+... whatever.  However, the number of points needed for usable
+results increases geometrically with the dimension of the set.
+
+For more information on how to use FD3, see the files INDEX,
+README.2, and REPORT.INF
+
+
+/* BEGIN NOTICE
+
+Copyright (c) 1992 by John Sarraille and Peter DiFalco
+(john@ishi.csustan.edu)
+
+Permission to use, copy, modify, and distribute this software
+and its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation.
+
+The algorithm used in this program was inspired by the paper
+entitled "A Fast Algorithm To Determine Fractal Dimensions By
+Box Counting", which was written by Liebovitch and Toth, and
+which appeared in the journal "Physics Letters A", volume 141,
+pp 386-390, (1989).
+
+This program is not warranteed: use at your own risk.
+
+END NOTICE */

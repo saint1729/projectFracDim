@@ -1,0 +1,150 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.12)  2 DEC 2012 18:12
+entering extended mode
+ %&-line parsing enabled.
+**paper.tex
+(./paper.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+) (./paper.aux)
+\openout1 = `paper.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\everyMPtoPDFconversion=\toks16
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 22.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 22.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 22.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 22.
+ <plot1/plot1.png, id=1, 1029.09468pt x 490.83376pt>
+File: plot1/plot1.png Graphic file (type png)
+ <use plot1/plot1.png>
+<plot2/plot2.png, id=2, 1029.09468pt x 490.83376pt>
+File: plot2/plot2.png Graphic file (type png)
+ <use plot2/plot2.png>
+<plot3/plot3.png, id=3, 1029.09468pt x 490.83376pt>
+File: plot3/plot3.png Graphic file (type png)
+ <use plot3/plot3.png>
+<plot4/plot4.png, id=4, 1029.09468pt x 490.83376pt>
+File: plot4/plot4.png Graphic file (type png)
+ <use plot4/plot4.png>
+<plot5/plot5.png, id=5, 1029.09468pt x 490.83376pt>
+File: plot5/plot5.png Graphic file (type png)
+ <use plot5/plot5.png>
+<plot6/plot6.png, id=6, 1029.09468pt x 490.83376pt>
+File: plot6/plot6.png Graphic file (type png)
+ <use plot6/plot6.png>
+<plot7/plot7.png, id=7, 1029.09468pt x 490.83376pt>
+File: plot7/plot7.png Graphic file (type png)
+ <use plot7/plot7.png>
+<plot8/plot8.png, id=8, 1029.09468pt x 490.83376pt>
+File: plot8/plot8.png Graphic file (type png)
+ <use plot8/plot8.png>
+<plot9/plot9.png, id=9, 1029.09468pt x 490.83376pt>
+File: plot9/plot9.png Graphic file (type png)
+ <use plot9/plot9.png>
+<plot10/plot10.png, id=10, 1029.09468pt x 490.83376pt>
+File: plot10/plot10.png Graphic file (type png)
+ <use plot10/plot10.png>
+<fd/fd_plot.png, id=11, 1029.09468pt x 490.83376pt>
+File: fd/fd_plot.png Graphic file (type png)
+ <use fd/fd_plot.png>
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./plot1/plot1.png (PNG
+ copy)> <./plot2/plot2.png (PNG copy)> <./plot3/plot3.png (PNG copy)>]
+[3 <./plot4/plot4.png (PNG copy)> <./plot5/plot5.png (PNG copy)> <./plot6/plot6
+.png (PNG copy)>] [4 <./plot7/plot7.png (PNG copy)> <./plot8/plot8.png (PNG cop
+y)> <./plot9/plot9.png (PNG copy)>] [5 <./plot10/plot10.png (PNG copy)> <./fd/f
+d_plot.png (PNG copy)>] [6] (./paper.aux) ) 
+Here is how much of TeX's memory you used:
+ 972 strings out of 495061
+ 12232 string characters out of 1182620
+ 66567 words of memory out of 3000000
+ 4178 multiletter control sequences out of 15000+50000
+ 6673 words of font info for 24 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 25i,8n,19p,591b,209s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmsy7.pfb>
+Output written on paper.pdf (6 pages, 253865 bytes).
+PDF statistics:
+ 68 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+

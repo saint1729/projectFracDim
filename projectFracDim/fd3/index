@@ -1,0 +1,97 @@
+
+Index to the FD3 Package
+
+
+INDEX			-- This file
+
+README.1st		-- Synopsis of FD3
+
+README.2		-- More complete information on
+			   installation and use of FD#
+
+REPORT.INF		-- A sample report like those output by
+			   FD3, together with annotations.
+			   This is intended to help you learn
+			   to interpret the reports output by
+			   FD3.
+
+NOTES			-- Some notes on the topic of fractal
+			   dimension, reproduced from a talk I
+			   gave.  Possibly a useful
+			   introduction to the subject.
+ 			   
+copyright		-- A copy of the copyright notice that
+			   appears in each of these files.
+
+fd.h			-- The header file for the program
+
+fddriver.c		-- The main program module
+
+fdqueue.c		-- The implementation of the queues
+			   used by FD3.
+
+fdutil.c		-- A collection of functions called by
+			   the main module in fddriver.c
+			   
+
+Some Sample Input Files That Are Included in this Collection:
+
+britain.dat 	-- 1292 points representing the coastline of Great
+		   Britain
+
+henon.dat	-- 2500 points of a Henon attractor, obtained by
+		   iterating x := 1 - ax^2 + y ; and y := bx,
+		   where a = 1.4, b = 0.3, and 0 is the initial
+		   value of both x and y.
+
+koch.dat	-- 3073 points of the Koch (snowflake) fractal
+		   curve.
+
+logistic.dat    -- 2000 iterations of the logistic equation
+                   x := g * x * (1-x), where g = 3.5699456.
+
+can3d.dat 	-- 1000 points in a Cantor (delete middle thirds)
+  		   set, embedded in 3D space.
+
+perf.dat	-- an "artifical" 2187 element set cooked up as
+		   an example where the information and
+		   correlation dimension estimates differ
+		   significantly from the capacity dimension
+		   estimate.
+
+Along with these *.dat files, are included the corresponding
+*.rep files, the reports that fd3 produced when the *.dat files
+were used as input.
+
+This allows you to compare what you get on your system with
+what we got on ours.
+
+Also, you can compare FD3's results with the results computed
+by other programs.
+
+Finally, the capacity dimension of the Koch curve is EXACTLY
+log(4)/log(3), and that of the Cantor set is log(2)/log(3).
+Compare these with FD3's values.
+
+****************************************
+
+/* BEGIN NOTICE
+
+Copyright (c) 1992 by John Sarraille and Peter DiFalco
+(john@ishi.csustan.edu)
+
+Permission to use, copy, modify, and distribute this software
+and its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation.
+
+The algorithm used in this program was inspired by the paper
+entitled "A Fast Algorithm To Determine Fractal Dimensions By
+Box Counting", which was written by Liebovitch and Toth, and
+which appeared in the journal "Physics Letters A", volume 141,
+pp 386-390, (1989).
+
+This program is not warranteed: use at your own risk.
+
+END NOTICE */

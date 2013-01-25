@@ -1,0 +1,169 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <title>Help - http://www.dharwadker.org/independent_set</title>
+<style type="text/css">
+body, p, div, td {font-family: arial, helvetica, sans-serif; font-size: 16px;}
+tt {font-family: courier; font-size: 16px;}
+A:link {color:#e28e42}
+A:visited {color:#e28e42}
+A:hover {color:#f4a054}
+</style>
+</head>
+<body text="#FFFFFF" bgcolor="#000000" link="#FFCC00" vlink="#FFCC00" alink="#FFCC00">
+&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 COLS=1 WIDTH="90%" >
+<tr>
+<td>
+<center><b>DEMONSTRATION PROGRAM</b>
+<p><b>THE VERTEX COLORING ALGORITHM</b>
+<p><b>ASHAY DHARWADKER</b>
+<p><b>COPYRIGHT &copy; 2006</b>
+<p><a href="http://www.dharwadker.org/vertex_coloring/">http://www.dharwadker.org/vertex_coloring</a>
+<p>
+<hr WIDTH="100%">
+<p><b>HOW TO USE THIS PROGRAM</b></center>
+
+<p><br>
+<ul>
+<li>
+<b>Start the program:</b></li>
+
+<ul>
+<li>
+Open <i>Vertex Coloring Algorithm.exe...</i></li>
+</ul>
+
+<li>
+<b>Input the graph:</b></li>
+
+<ul>
+<li>
+From the main menu select <i>Input File > Open graph.txt...</i></li>
+
+<li>
+In the file <i>graph.txt</i>, write the number of vertices of the graph
+followed by the adjacency matrix of the graph. All entries must be separated
+by white space. Recall that the adjacency matrix of a labeled simple graph
+with <i>n </i>vertices 1, 2,..., <i>n</i> is an <i>n</i>x<i>n</i> matrix
+with entry in row <i>i</i> and column <i>j</i> equal to 1 if there is an
+edge connecting vertex <i>i</i> with vertex <i>j</i> and 0 otherwise. For
+example, if you wish to input the Petersen graph shown below</li>
+</ul>
+
+<ul>
+<center><img SRC="help.jpg" height=468 width=488></center>
+</ul>
+</ul>
+
+<ul>
+<ul>then the number of vertices is 10 and the adjacency matrix is
+<br>&nbsp;
+<center><table BORDER >
+<tr>
+<td BGCOLOR="#c26e22"></td>
+
+<td BGCOLOR="#e28e42"><tt>&nbsp;1 2 3 4 5 6 7 8 9 10&nbsp;</tt></td>
+</tr>
+
+<tr>
+<td BGCOLOR="#e28e42"><tt>1&nbsp;</tt>
+<br><tt>2&nbsp;</tt>
+<br><tt>3&nbsp;</tt>
+<br><tt>4&nbsp;</tt>
+<br><tt>5&nbsp;</tt>
+<br><tt>6&nbsp;</tt>
+<br><tt>7&nbsp;</tt>
+<br><tt>8</tt>
+<br><tt>9</tt>
+<br><tt>10</tt></td>
+
+<td><tt>&nbsp;0 1 0 0 1 0 1 0 0 0&nbsp;</tt>
+<br><tt>&nbsp;1 0 1 0 0 0 0 1 0 0&nbsp;</tt>
+<br><tt>&nbsp;0 1 0 1 0 0 0 0 1 0&nbsp;</tt>
+<br><tt>&nbsp;0 0 1 0 1 0 0 0 0 1&nbsp;</tt>
+<br><tt>&nbsp;1 0 0 1 0 1 0 0 0 0&nbsp;</tt>
+<br><tt>&nbsp;0 0 0 0 1 0 0 1 1 0&nbsp;</tt>
+<br><tt>&nbsp;1 0 0 0 0 0 0 0 1 1&nbsp;</tt>
+<br><tt>&nbsp;0 1 0 0 0 1 0 0 0 1&nbsp;</tt>
+<br><tt>&nbsp;0 0 1 0 0 1 1 0 0 0&nbsp;</tt>
+<br><tt>&nbsp;0 0 0 1 0 0 1 1 0 0&nbsp;</tt></td>
+</tr>
+</table></center>
+
+<p>thus the file <i>graph.txt</i> should be written as
+<br>&nbsp;
+<center><table BORDER CELLPADDING=4 >
+<tr>
+<td BGCOLOR="#e28e42">
+<center><b><tt>graph.txt</tt></b></center>
+</td>
+</tr>
+
+<tr>
+<td><tt>10</tt>
+<br><tt>&nbsp;0 1 0 0 1 0 1 0 0 0&nbsp;</tt>
+<br><tt>&nbsp;1 0 1 0 0 0 0 1 0 0&nbsp;</tt>
+<br><tt>&nbsp;0 1 0 1 0 0 0 0 1 0&nbsp;</tt>
+<br><tt>&nbsp;0 0 1 0 1 0 0 0 0 1&nbsp;</tt>
+<br><tt>&nbsp;1 0 0 1 0 1 0 0 0 0&nbsp;</tt>
+<br><tt>&nbsp;0 0 0 0 1 0 0 1 1 0&nbsp;</tt>
+<br><tt>&nbsp;1 0 0 0 0 0 0 0 1 1&nbsp;</tt>
+<br><tt>&nbsp;0 1 0 0 0 1 0 0 0 1&nbsp;</tt>
+<br><tt>&nbsp;0 0 1 0 0 1 1 0 0 0&nbsp;</tt>
+<br><tt>&nbsp;0 0 0 1 0 0 1 1 0 0&nbsp;</tt></td>
+</tr>
+</table></center>
+
+<p>Save the modified file <i>graph.txt. </i>For more examples, select <i>Examples</i>
+from the main menu.</ul>
+
+<li>
+<b>Find a proper <i>m</i>-coloring of the vertices of the graph:</b></li>
+
+<ul>
+<li>
+On the main dialog, input the value of <i>m</i>. This should be a positive integer
+less than or equal to the number of vertices of the graph.&nbsp;</li>
+
+<li>
+On the main dialog, press the button <i>Color vertices using at most m
+colors.</i></li>
+
+<li>
+After the computation ends, from the main menu select <i>Output File >
+Open coloring.txt...</i></li>
+</ul>
+
+<li>
+<b>Visualizer:</b></li>
+
+<ul>
+<li>
+From the main menu select <i>Visualizer > Start Visualizer...</i> This
+opens a new dialog showing the proper <i>m</i>-coloring of the vertices
+found by the algorithm. Note that for the vertices labeled 1, 2, ..., <i>n</i>,
+the vertex labeled&nbsp;<i> i </i>is positioned on the unit circle at coordinates
+(<i>cos</i>(2<font face="Symbol">p</font><i>i
+</i>/
+<i>n</i>),
+<i>sin</i>(2<font face="Symbol">p</font><i>i
+</i>/
+<i>n</i>)).
+Press ESC to close the visualizer dialog.</li>
+</ul>
+</ul>
+
+<hr WIDTH="100%">
+<center>
+<p>For more details visit the website
+<br><a href="http://www.dharwadker.org/vertex_coloring/">http://www.dharwadker.org/vertex_coloring</a></center>
+
+<p>&nbsp;</td>
+</tr>
+</table></center>
+
+</body>
+</html>
